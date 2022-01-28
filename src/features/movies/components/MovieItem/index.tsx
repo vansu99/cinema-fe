@@ -11,13 +11,13 @@ type MovieItemProps = {
   name: string;
   rate: number;
   image: string;
-  count: number;
-  spacing: number;
+  count?: number;
+  spacing?: number;
 };
 
 const MovieItem = ({
-  count,
-  spacing,
+  count = 0,
+  spacing = 0,
   name,
   rate,
   image,

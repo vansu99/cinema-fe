@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoryWrapper, CategoryList, CategoryItem } from "./styled";
-import { StyledHeading } from "../../styles/common";
+import { StyledHeading } from "../../../../styles/common";
 
 const Category = () => {
   return (

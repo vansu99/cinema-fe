@@ -1,15 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { typography } from "./typography";
-import {colors} from "./colors";
-
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
+import { colors } from "./colors";
 
 const StyledHeading = styled.div`
   text-align: center;
@@ -22,11 +13,11 @@ const StyledHeading = styled.div`
     ${typography.size.large}
     margin-bottom: 2rem;
   }
-  
+
   p {
     ${typography.size.medium}
   }
-  
+
   &:after {
     content: "";
     position: absolute;
@@ -39,4 +30,4 @@ const StyledHeading = styled.div`
   }
 `;
 
-export { spin, StyledHeading };
+export { StyledHeading };

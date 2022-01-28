@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledSlide = styled.div`
-  padding: 7rem 10rem;
+  padding: 5rem 10rem;
   .swiper {
     width: 100%;
   }
