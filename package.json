@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -10,9 +11,13 @@
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "graphql": "^15.8.0",
+    "graphql-request": "^4.0.0",
+    "graphql-tag": "^2.12.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-player": "^2.9.0",
+    "react-query": "^3.34.12",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
     "swiper": "^7.4.1",
@@ -26,7 +31,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
     "format": "npm run prettier -- --write",
-    "typegen": "graphql-codegen --config ./src/graphql/codegen.yml"
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -49,8 +54,9 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^2.4.0",
     "@graphql-codegen/typescript": "^2.4.2",
+    "@graphql-codegen/typescript-operations": "^2.2.3",
+    "@graphql-codegen/typescript-react-query": "^3.4.0",
     "@types/styled-components": "^5.1.21",
-    "graphql": "^16.2.0",
     "prettier": "^2.5.1"
   }
 }

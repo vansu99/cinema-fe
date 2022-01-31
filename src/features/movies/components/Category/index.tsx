@@ -1,8 +1,19 @@
 import React from "react";
 import { CategoryWrapper, CategoryList, CategoryItem } from "./styled";
 import { StyledHeading } from "../../../../styles/common";
+import {
+  useAllCategoryQuery,
+  AllCategoryQuery,
+} from "../../../../generated/graphql";
+import requestClient from "../../../../config";
 
 const Category = () => {
+  const { isLoading, data, error } = useAllCategoryQuery<
+    AllCategoryQuery,
+    Error
+  >(requestClient, {});
+
+  console.log(data);
   return (
     <CategoryWrapper>
       <StyledHeading>

@@ -5,4 +5,7 @@ export type Movie = {
   description: string;
   image: string;
   status: StatusMovie;
+  national?: string
+  rate?: number
+  startDate?: string
 };

@@ -3,7 +3,7 @@ import { css } from "styled-components";
 export const typography = {
   family: {
     base: css`
-      font-family: "Poppins", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     `,
   },
   size: {
