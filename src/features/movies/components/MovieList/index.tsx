@@ -2,13 +2,23 @@ import React from "react";
 import { StyledHeading } from "../../../../styles/common";
 import { StyledMovieList, StyledMovieWrapper } from "./styled";
 import MovieItem from "../MovieItem";
+import { useGQLQuery } from "../../../../hooks/useGQLQuery";
+import { IResponseData } from "../../types";
+import { FilmStatusDocument } from "../../../../generated/graphql";
 
 type MovieListProps = {
   title: string;
-  desc?: string
+  desc?: string;
 };
 
 const MovieList = ({ title, desc }: MovieListProps) => {
+  const { data, isLoading } = useGQLQuery<IResponseData>(
+    "filmStatus",
+    FilmStatusDocument,
+    { status: "pending" }
+  );
+
+  if(isLoading) return <p>Loading...</p>
   return (
     <StyledMovieWrapper>
       <StyledHeading>
@@ -16,48 +26,14 @@ const MovieList = ({ title, desc }: MovieListProps) => {
         <p>{desc}</p>
       </StyledHeading>
       <StyledMovieList>
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="Test 1"
-          rate={4}
-          image="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202111/10740_103_100004.png"
-        />
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-          rate={4}
-          image="https://via.placeholder.com/350"
-        />
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="SÁT THỦ HOA HỒNG"
-          rate={4}
-          image="https://via.placeholder.com/350"
-        />
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="Test 4"
-          rate={4}
-          image="https://via.placeholder.com/350"
-        />
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="Test 4"
-          rate={4}
-          image="https://via.placeholder.com/350"
-        />
-        <MovieItem
-          count={6}
-          spacing={3}
-          name="Test 4"
-          rate={4}
-          image="https://via.placeholder.com/350"
-        />
+        {data?.filmStatus?.map((film) => (
+          <MovieItem
+            key={film._id}
+            count={6}
+            spacing={3}
+            {...film}
+          />
+        ))}
       </StyledMovieList>
     </StyledMovieWrapper>
   );

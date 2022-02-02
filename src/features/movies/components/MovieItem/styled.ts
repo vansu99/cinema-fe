@@ -16,6 +16,37 @@ export const StyledMovieItem = styled.div<StyledMovieItemProps>`
   height: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 3rem;
+`;
+
+export const StyledMovieButton = styled.figcaption`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.35s ease;
+  opacity: 0;
+  visibility: hidden;
+
+  button {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    border: 2px solid ${colors.textTeal};
+    border-radius: 4px;
+    color: #fff;
+    background: transparent;
+    text-transform: capitalize;
+  }
 `;
 
 export const StyledMovieThumbnail = styled.div`
@@ -34,6 +65,11 @@ export const StyledMovieThumbnail = styled.div`
     height: 100%;
     background-color: #fff;
     vertical-align: bottom;
+  }
+
+  &:hover ${StyledMovieButton} {
+    opacity: 1;
+    visibility: visible;
   }
 `;
 
@@ -65,8 +101,8 @@ export const StyledMovieTitle = styled.div`
     font-size: 1.5rem;
     line-height: 1.3;
     color: ${colors.textWhite};
-    transition: color .2s linear;
-    
+    transition: color 0.2s linear;
+
     &:hover {
       color: ${colors.textTeal};
     }
@@ -80,4 +116,10 @@ export const StyledMovieItemDesc = styled.p`
   &:not(:last-child) {
     margin-bottom: 1rem;
   }
+`;
+
+export const StyledMovieRating = styled.span`
+  color: ${colors.yellowColor};
+  display: inline-block;
+  padding-left: 5px;
 `;

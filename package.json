@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.5.8",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +10,7 @@
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "dayjs": "^1.10.7",
     "graphql": "^15.8.0",
     "graphql-request": "^4.0.0",
     "graphql-tag": "^2.12.6",

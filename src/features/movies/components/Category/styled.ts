@@ -19,7 +19,9 @@ export const CategoryItem = styled.a`
   color: ${colors.textWhite};
   margin-right: 3rem;
   margin-bottom: 3rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  word-wrap: break-word;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;

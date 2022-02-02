@@ -5,13 +5,7 @@ import App from "./App";
 import { QueryClientProvider, QueryClient } from "react-query";
 import reportWebVitals from "./reportWebVitals";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 1000,
-    },
-  },
-});
+const queryClient = new QueryClient({});
 
 ReactDOM.render(
   <React.StrictMode>

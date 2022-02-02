@@ -151,8 +151,7 @@ export type Query = {
   categoryId?: Maybe<Category>;
   filmId?: Maybe<Film>;
   filmPaginate?: Maybe<FilmPaginator>;
-  filmStatusOpen?: Maybe<Array<Maybe<Film>>>;
-  filmStatusPending?: Maybe<Array<Maybe<Film>>>;
+  filmStatus?: Maybe<Array<Maybe<Film>>>;
   films?: Maybe<Array<Maybe<Film>>>;
   podcasts?: Maybe<Array<Maybe<Podcast>>>;
 };
@@ -174,12 +173,7 @@ export type QueryFilmPaginateArgs = {
 };
 
 
-export type QueryFilmStatusOpenArgs = {
-  status?: InputMaybe<Scalars['String']>;
-};
-
-
-export type QueryFilmStatusPendingArgs = {
+export type QueryFilmStatusArgs = {
   status?: InputMaybe<Scalars['String']>;
 };
 
@@ -197,6 +191,13 @@ export type AllFilmsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllFilmsQuery = { __typename?: 'Query', films?: Array<{ __typename?: 'Film', _id: string, name: string } | null> | null };
+
+export type FilmStatusQueryVariables = Exact<{
+  status?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type FilmStatusQuery = { __typename?: 'Query', filmStatus?: Array<{ __typename?: 'Film', _id: string, name: string, image: string, rate?: number | null, status?: string | null } | null> | null };
 
 
 export const AllCategoryDocument = `
@@ -241,5 +242,30 @@ export const useAllFilmsQuery = <
     useQuery<AllFilmsQuery, TError, TData>(
       variables === undefined ? ['AllFilms'] : ['AllFilms', variables],
       fetcher<AllFilmsQuery, AllFilmsQueryVariables>(client, AllFilmsDocument, variables, headers),
+      options
+    );
+export const FilmStatusDocument = `
+    query filmStatus($status: String) {
+  filmStatus(status: $status) {
+    _id
+    name
+    image
+    rate
+    status
+  }
+}
+    `;
+export const useFilmStatusQuery = <
+      TData = FilmStatusQuery,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables?: FilmStatusQueryVariables,
+      options?: UseQueryOptions<FilmStatusQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<FilmStatusQuery, TError, TData>(
+      variables === undefined ? ['filmStatus'] : ['filmStatus', variables],
+      fetcher<FilmStatusQuery, FilmStatusQueryVariables>(client, FilmStatusDocument, variables, headers),
       options
     );

@@ -15,7 +15,7 @@ const Home = () => {
         desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
       />
       <MovieList
-        title="Phim sắp công chiếu"
+        title="Phim đang công chiếu"
         desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
       />
       <PopularMovie />
