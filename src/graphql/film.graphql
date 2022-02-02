@@ -4,3 +4,13 @@ query AllFilms {
     name
   }
 }
+
+query filmStatus($status: String) {
+  filmStatus(status: $status) {
+    _id
+    name
+    image
+    rate
+    status
+  }
+}

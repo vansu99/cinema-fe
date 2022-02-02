@@ -6,8 +6,8 @@ export const StyledSlide = styled.div`
     width: 100%;
   }
   .swiper-slide {
-    width: 30rem !important;
-    height: auto;
+    width: 20rem !important;
+    height: 30rem !important;
     background-position: center;
     background-size: cover;
   }

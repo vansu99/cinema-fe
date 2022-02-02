@@ -1,19 +1,14 @@
 import React from "react";
 import { CategoryWrapper, CategoryList, CategoryItem } from "./styled";
 import { StyledHeading } from "../../../../styles/common";
-import {
-  useAllCategoryQuery,
-  AllCategoryQuery,
-} from "../../../../generated/graphql";
-import requestClient from "../../../../config";
+import { useGQLQuery } from "../../../../hooks/useGQLQuery";
+import { AllCategoryDocument } from "../../../../generated/graphql";
+import { IResponseData } from "../../types";
 
-const Category = () => {
-  const { isLoading, data, error } = useAllCategoryQuery<
-    AllCategoryQuery,
-    Error
-  >(requestClient, {});
+const Category = (): JSX.Element => {
+  const { data, isLoading } = useGQLQuery<IResponseData>("categories", AllCategoryDocument);
 
-  console.log(data);
+  if (isLoading) return <p>Loading...</p>;
   return (
     <CategoryWrapper>
       <StyledHeading>
@@ -21,27 +16,11 @@ const Category = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
       </StyledHeading>
       <CategoryList>
-        <CategoryItem href="#!">
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
-        <CategoryItem>
-          <h3>Hành động</h3>
-        </CategoryItem>
+        {data?.categories?.map((item) => (
+          <CategoryItem key={item._id} href="#!">
+            <h3>{item.name}</h3>
+          </CategoryItem>
+        ))}
       </CategoryList>
     </CategoryWrapper>
   );

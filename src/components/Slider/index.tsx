@@ -4,17 +4,24 @@ import "swiper/css/effect-coverflow";
 import SwiperCore, { EffectCoverflow } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { StyledSlide } from "./styled";
+import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { IResponseData } from "../../features/movies";
+import { FilmStatusDocument } from "../../generated/graphql";
 
 SwiperCore.use([EffectCoverflow]);
 
 const Slider = () => {
+  const { data } = useGQLQuery<IResponseData>("filmStatus", FilmStatusDocument, {
+    status: "pending",
+  });
+
   return (
     <StyledSlide>
       <Swiper
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView='auto'
+        slidesPerView="auto"
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -23,24 +30,11 @@ const Slider = () => {
           slideShadows: true,
         }}
       >
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://via.placeholder.com/350" alt="" />
-        </SwiperSlide>
+        {data?.filmStatus?.map((film) => (
+          <SwiperSlide key={film._id}>
+            <img src={film.image} alt="" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </StyledSlide>
   );
