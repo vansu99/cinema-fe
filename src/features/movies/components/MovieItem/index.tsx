@@ -24,6 +24,7 @@ const MovieItem = ({
   image,
   startDate,
 }: MovieItemProps): JSX.Element => {
+  
   return (
     <StyledMovieItem count={count} spacing={spacing}>
       <a href="#!">

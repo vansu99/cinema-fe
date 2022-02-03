@@ -252,6 +252,7 @@ export const FilmStatusDocument = `
     image
     rate
     status
+    startDate
   }
 }
     `;

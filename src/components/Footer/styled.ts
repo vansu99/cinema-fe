@@ -2,7 +2,7 @@ import { colors } from './../../styles/colors';
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   text-align: center;
   border-top: 1px solid ${colors.textTeal};
 `

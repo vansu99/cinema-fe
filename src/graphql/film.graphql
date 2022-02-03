@@ -12,5 +12,6 @@ query filmStatus($status: String) {
     image
     rate
     status
+    startDate
   }
 }
