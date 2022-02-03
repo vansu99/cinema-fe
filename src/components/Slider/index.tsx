@@ -15,6 +15,8 @@ const Slider = () => {
     status: "pending",
   });
 
+  console.log(data)
+
   return (
     <StyledSlide>
       <Swiper

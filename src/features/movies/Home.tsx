@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "../../components/Slider";
+import Awards from "./components/Awards";
 import Category from "./components/Category";
 import MovieList from "./components/MovieList";
 import MovieSlider from "./components/MovieSlider";
@@ -19,6 +20,7 @@ const Home = () => {
         desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit"
       />
       <PopularMovie />
+      <Awards />
     </div>
   );
 };
