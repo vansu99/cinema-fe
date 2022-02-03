@@ -12,10 +12,8 @@ SwiperCore.use([EffectCoverflow]);
 
 const Slider = () => {
   const { data } = useGQLQuery<IResponseData>("filmStatus", FilmStatusDocument, {
-    status: "pending",
+    status: "open",
   });
-
-  console.log(data)
 
   return (
     <StyledSlide>
