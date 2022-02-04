@@ -4,7 +4,7 @@ import "swiper/css/effect-coverflow";
 import SwiperCore, { EffectCoverflow } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { StyledSlide } from "./styled";
-import { useGQLQuery } from "../../hooks/useGQLQuery";
+import { useGQLQuery } from "../../hooks";
 import { IResponseData } from "../../features/movies";
 import { FilmStatusDocument } from "../../generated/graphql";
 

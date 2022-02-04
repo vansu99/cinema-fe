@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import { Movie } from "../../types";
 import {
   StyledMovieInfo,
@@ -11,6 +12,7 @@ import {
   StyledMovieButton
 } from "./styled";
 
+dayjs.extend(localizedFormat)
 interface MovieItemProps extends Movie {
   count?: number;
   spacing?: number;
@@ -42,7 +44,7 @@ const MovieItem = ({
             Rate: <StyledMovieRating>{rate}</StyledMovieRating>/10
           </StyledMovieItemDesc>
           <StyledMovieItemDesc>
-            Released {dayjs(startDate).format("MMM DD, YYYY")}
+            Released {dayjs(startDate).format("ll")}
           </StyledMovieItemDesc>
         </StyledMovieInfo>
       </a>

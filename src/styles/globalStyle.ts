@@ -1,5 +1,5 @@
-import { colors } from './colors'
-import { typography } from './typography'
+import { colors } from "./colors";
+import { typography } from "./typography";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -27,9 +27,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
-  .d-flex {
-    display: flex;
-  }
+
 `;
 
 export default GlobalStyle;

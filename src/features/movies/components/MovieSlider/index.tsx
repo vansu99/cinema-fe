@@ -4,7 +4,7 @@ import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieItem from "../MovieItem";
 import { StyledHeading } from "../../../../styles/common";
-import { useGQLQuery } from "../../../../hooks/useGQLQuery";
+import { useGQLQuery } from "../../../../hooks";
 import { IResponseData } from "../..";
 import { FilmStatusDocument } from "../../../../generated/graphql";
 
@@ -32,9 +32,7 @@ const MovieSlider = ({ title, desc }: any) => {
         {data?.filmStatus?.map((film) => (
           <SwiperSlide key={film._id}>
             <MovieItem
-              name={film.name}
-              rate={film.rate || 0}
-              image={film.image}
+              {...film}
             />
           </SwiperSlide>
         ))}

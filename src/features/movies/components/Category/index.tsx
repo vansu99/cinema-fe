@@ -1,7 +1,7 @@
 import React from "react";
 import { CategoryWrapper, CategoryList, CategoryItem } from "./styled";
 import { StyledHeading } from "../../../../styles/common";
-import { useGQLQuery } from "../../../../hooks/useGQLQuery";
+import { useGQLQuery } from "../../../../hooks";
 import { AllCategoryDocument } from "../../../../generated/graphql";
 import { IResponseData } from "../../types";
 

@@ -1,12 +1,17 @@
 import { useQuery } from "react-query";
 import { GraphQLClient, Variables } from "graphql-request";
 
-export const useGQLQuery = <T>(key: string, query: string, variables?: Variables, config = {}) => {
-  const endpoint = 'https://cinema-vs.herokuapp.com/';
+const useGQLQuery = <T>(
+  key: string,
+  query: string,
+  variables?: Variables,
+  config = {}
+) => {
+  const endpoint = "https://cinema-vs.herokuapp.com/";
   const headers = {
     headers: {
       authorization: `Bearer token goise`,
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
   };
   const graphqlClient = new GraphQLClient(endpoint, headers);
@@ -19,3 +24,5 @@ export const useGQLQuery = <T>(key: string, query: string, variables?: Variables
     isLoading,
   };
 };
+
+export default useGQLQuery;
