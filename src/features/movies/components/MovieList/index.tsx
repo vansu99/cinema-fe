@@ -2,7 +2,7 @@ import React from "react";
 import { StyledHeading } from "../../../../styles/common";
 import { StyledMovieList, StyledMovieWrapper } from "./styled";
 import MovieItem from "../MovieItem";
-import { useGQLQuery } from "../../../../hooks/useGQLQuery";
+import { useGQLQuery } from "../../../../hooks";
 import { IResponseData } from "../../types";
 import { FilmStatusDocument } from "../../../../generated/graphql";
 
