@@ -1,8 +1,13 @@
 import { useCallback, useState } from "react";
 
-const useToggle = (
-  initialValue = false
-): [boolean, () => void, () => void, () => void] => {
+interface IResponseHook {
+  value: boolean;
+  toggle: () => void;
+  open: () => void;
+  close: () => void;
+}
+
+const useToggle = (initialValue = false): IResponseHook => {
   const [value, setValue] = useState(initialValue);
 
   const toggle = useCallback(() => {
@@ -17,7 +22,7 @@ const useToggle = (
     setValue(false);
   }, []);
 
-  return [value, toggle, open, close];
+  return { value, toggle, open, close };
 };
 
 export default useToggle;

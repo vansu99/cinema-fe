@@ -1,11 +1,16 @@
 import { colors } from "./../../../../styles/colors";
 import styled from "styled-components";
 import MovieAward from "../../../../assets/images/movies.jpg";
+import { variables } from "../../../../styles/variables";
 
 export const StyledAwards = styled.div`
   position: relative;
   background: url(${MovieAward}) no-repeat center center / cover;
   height: 110vh;
+
+  @media ${variables.mobile} {
+    height: 100vh;
+  }
 `;
 
 export const StyledAwardFocus = styled.div`
@@ -23,6 +28,10 @@ export const StyledAwardContent = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+
+  @media ${variables.mobile} {
+    width: 100%;
+  }
 `;
 
 export const StyledAwardHeading = styled.div`
@@ -47,10 +56,21 @@ export const StyledAwardHeading = styled.div`
     font-size: 4rem;
     padding: 0 1rem;
   }
+
+  @media ${variables.mobile} {
+    font-size: 4rem;
+    span {
+      font-size: 2.5rem;
+    }
+  }
 `;
 
 export const StyledAwardDesc = styled.p`
   font-size: 1.3rem;
   line-height: 1.4;
   margin: 3rem 6rem 0;
+
+  @media ${variables.mobile} {
+    margin: 3rem 4rem 0;
+  }
 `

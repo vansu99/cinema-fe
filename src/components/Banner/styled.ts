@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BannerImg from "../../assets/images/bg.jpg";
 import { colors } from "../../styles/colors";
+import { variables } from "../../styles/variables";
 
 export const StyledBanner = styled.div`
   position: relative;
@@ -35,8 +36,25 @@ export const StyledBannerContent = styled.div`
       color: ${colors.textTeal};
     }
   }
+
   p {
     font-size: 1.8rem;
     line-height: 1.4;
+  }
+
+  @media ${variables.mobile} {
+    padding: 0 3rem;
+
+    h1 {
+      font-size: 3rem;
+
+      span {
+        font-size: 4rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
   }
 `;

@@ -1,11 +1,12 @@
 import React from "react";
 import "swiper/css";
-import SwiperCore, { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import MovieItem from "../MovieItem";
-import { StyledHeading } from "../../../../styles/common";
-import { useGQLQuery } from "../../../../hooks";
 import { IResponseData } from "../..";
+import { StyledMovieSlide } from "./styled";
+import SwiperCore, { Autoplay } from "swiper";
+import { useGQLQuery } from "../../../../hooks";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { StyledHeading } from "../../../../styles/common";
 import { FilmStatusDocument } from "../../../../generated/graphql";
 
 SwiperCore.use([Autoplay]);
@@ -14,30 +15,36 @@ const MovieSlider = ({ title, desc }: any) => {
   const { data, isLoading } = useGQLQuery<IResponseData>(
     "filmStatus",
     FilmStatusDocument,
-    { status: 'open' }
+    { status: "open" }
   );
 
   if (isLoading) return <p>Loading...</p>;
   return (
-    <div style={{ padding: "5rem 10rem" }}>
+    <StyledMovieSlide>
       <StyledHeading>
         <h3>{title}</h3>
         <p>{desc}</p>
       </StyledHeading>
       <Swiper
-        slidesPerView={6}
-        spaceBetween={30}
+        breakpoints={{
+          370: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 30,
+          },
+        }}
         autoplay={{ delay: 1500, disableOnInteraction: false }}
       >
         {data?.filmStatus?.map((film) => (
           <SwiperSlide key={film._id}>
-            <MovieItem
-              {...film}
-            />
+            <MovieItem {...film} />
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </StyledMovieSlide>
   );
 };
 
