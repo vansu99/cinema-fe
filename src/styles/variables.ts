@@ -1,4 +1,4 @@
 export const variables = {
-    mobile: '600px',
-    tablet: '1024px'
-}
+  mobile: "(max-width: 750px)",
+  tablet: "(max-width: 1024px)",
+};

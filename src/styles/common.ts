@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { typography } from "./typography";
 import { colors } from "./colors";
+import { variables } from "./variables";
 
 const StyledHeading = styled.div`
   text-align: center;
   position: relative;
   padding-bottom: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 
   h3 {
     text-transform: capitalize;
@@ -16,6 +17,15 @@ const StyledHeading = styled.div`
 
   p {
     ${typography.size.medium}
+  }
+
+  @media ${variables.mobile} {
+    h3 {
+      font-size: 2rem;
+    }
+    p {
+      ${typography.size.small}
+    }
   }
 
   &:after {
