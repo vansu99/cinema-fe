@@ -3,9 +3,7 @@ import { StyledHeading } from "../../../../styles/common";
 import { StyledMovieList, StyledMovieWrapper } from "./styled";
 import MovieItem from "../MovieItem";
 import Media from "react-media";
-import { useGQLQuery } from "../../../../hooks";
 import { Movie } from "../../types";
-import { FilmStatusDocument } from "../../../../generated/graphql";
 
 type MovieListProps = {
   title: string;
