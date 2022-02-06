@@ -1,19 +1,18 @@
 import React from "react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import SwiperCore, { EffectCoverflow } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { StyledSlide } from "./styled";
-import { useGQLQuery } from "../../hooks";
-import { IResponseData } from "../../features/movies";
-import { FilmStatusDocument } from "../../generated/graphql";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectCoverflow } from "swiper";
+import { Movie } from "../../features/movies";
 
 SwiperCore.use([EffectCoverflow]);
 
-const Slider = () => {
-  const { data } = useGQLQuery<IResponseData>("filmStatus", FilmStatusDocument, {
-    status: "open",
-  });
+interface SlideProps {
+  movies: Movie[]
+}
+
+const Slider = ({ movies }: SlideProps) => {
 
   return (
     <StyledSlide>
@@ -30,9 +29,9 @@ const Slider = () => {
           slideShadows: true,
         }}
       >
-        {data?.filmStatus?.map((film) => (
+        {movies.map((film) => (
           <SwiperSlide key={film._id}>
-            <img src={film.image} alt="" />
+            <img src={film.image} alt={film.name} />
           </SwiperSlide>
         ))}
       </Swiper>

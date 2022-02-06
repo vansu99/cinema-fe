@@ -5,13 +5,23 @@ query AllFilms {
   }
 }
 
-query filmStatus($status: String) {
-  filmStatus(status: $status) {
-    _id
-    name
-    image
-    rate
-    status
-    startDate
+query filmStatus {
+  filmStatusOpen: filmStatus(status: "open") {
+    ...fieldFilm
+  },
+  filmStatusPending: filmStatus(status: "pending") {
+    ...fieldFilm
+  },
+  filmStatusEnd: filmStatus(status: "end") {
+    ...fieldFilm
   }
+}
+
+fragment fieldFilm on Film {
+  _id
+  name
+  image
+  rate
+  status
+  startDate
 }

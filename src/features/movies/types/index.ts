@@ -26,6 +26,8 @@ export type IMovieSlider = {
 
 export type IResponseData = {
   films?: Movie[];
-  filmStatus?: Movie[];
+  filmStatusEnd?: Movie[];
+  filmStatusPending?: Movie[];
+  filmStatusOpen?: Movie[];
   categories?: ICategory[];
 };

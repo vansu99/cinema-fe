@@ -4,22 +4,16 @@ import { StyledMovieList, StyledMovieWrapper } from "./styled";
 import MovieItem from "../MovieItem";
 import Media from "react-media";
 import { useGQLQuery } from "../../../../hooks";
-import { IResponseData } from "../../types";
+import { Movie } from "../../types";
 import { FilmStatusDocument } from "../../../../generated/graphql";
 
 type MovieListProps = {
   title: string;
   desc?: string;
+  movies: Movie[]
 };
 
-const MovieList = ({ title, desc }: MovieListProps) => {
-  const { data, isLoading } = useGQLQuery<IResponseData>(
-    "filmStatus",
-    FilmStatusDocument,
-    { status: "pending" }
-  );
-
-  if (isLoading) return <p>Loading...</p>;
+const MovieList = ({ title, desc, movies }: MovieListProps) => {
   return (
     <StyledMovieWrapper>
       <StyledHeading>
@@ -36,14 +30,14 @@ const MovieList = ({ title, desc }: MovieListProps) => {
           <>
             {matches.small && (
               <StyledMovieList>
-                {data?.filmStatus?.map((film) => (
+                {movies.map((film) => (
                   <MovieItem key={film._id} count={2} spacing={3} {...film} />
                 ))}
               </StyledMovieList>
             )}
             {matches.mediumMin && (
               <StyledMovieList>
-                {data?.filmStatus?.map((film) => (
+                {movies.map((film) => (
                   <MovieItem key={film._id} count={6} spacing={3} {...film} />
                 ))}
               </StyledMovieList>
