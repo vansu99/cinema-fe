@@ -1,24 +1,21 @@
 import React from "react";
 import "swiper/css";
+import { Movie } from "../..";
 import MovieItem from "../MovieItem";
-import { IResponseData } from "../..";
 import { StyledMovieSlide } from "./styled";
 import SwiperCore, { Autoplay } from "swiper";
-import { useGQLQuery } from "../../../../hooks";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { StyledHeading } from "../../../../styles/common";
-import { FilmStatusDocument } from "../../../../generated/graphql";
 
 SwiperCore.use([Autoplay]);
 
-const MovieSlider = ({ title, desc }: any) => {
-  const { data, isLoading } = useGQLQuery<IResponseData>(
-    "filmStatus",
-    FilmStatusDocument,
-    { status: "open" }
-  );
+interface MovieSliderProps {
+  title: string
+  desc?: string
+  movies: Movie[]
+}
 
-  if (isLoading) return <p>Loading...</p>;
+const MovieSlider = ({ title, desc, movies }: MovieSliderProps) => {
   return (
     <StyledMovieSlide>
       <StyledHeading>
@@ -38,7 +35,7 @@ const MovieSlider = ({ title, desc }: any) => {
         }}
         autoplay={{ delay: 1500, disableOnInteraction: false }}
       >
-        {data?.filmStatus?.map((film) => (
+        {movies.map((film) => (
           <SwiperSlide key={film._id}>
             <MovieItem {...film} />
           </SwiperSlide>
