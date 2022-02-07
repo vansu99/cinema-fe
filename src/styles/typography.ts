@@ -21,11 +21,11 @@ export const typography = {
     `,
     small: css`
       font-size: 1.4rem;
-      line-height: 1.4rem;
+      line-height: 1.4;
     `,
     xsmall: css`
       font-size: 1.2rem;
-      line-height: 1.125rem;
+      line-height: 1.3;
     `,
   },
   weight: {

@@ -1,5 +1,7 @@
-import styled from "styled-components";
-import { colors } from "../../../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../../../styles/colors';
+import { textTruncate } from '../../../../styles/common';
+import { typography } from '../../../../styles/typography';
 
 type StyledMovieItemProps = {
   count: number;
@@ -122,4 +124,98 @@ export const StyledMovieRating = styled.span`
   color: ${colors.yellowColor};
   display: inline-block;
   padding-left: 5px;
+`;
+
+// Modal Film Detail
+export const StyledModalFilmDetail = styled.div`
+  display: flex;
+  justify-content: space-between;
+  > div {
+    width: 50%;
+    &:not(:last-child) {
+      padding-right: 2rem;
+    }
+  }
+`;
+
+export const StyledModalThumbnail = styled.div`
+  margin-bottom: 3rem;
+  text-align: center;
+`;
+
+export const StyledModalInfo = styled.div``;
+
+export const StyledModalHeading = styled.h2`
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: ${colors.textWhite};
+  margin-bottom: 2rem;
+`;
+
+export const StyledModalRating = styled.div`
+  display: flex;
+  align-items: baseline;
+  margin: 1rem 0 2rem;
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.6rem;
+  }
+`;
+
+export const StyledModalDesc = styled.p`
+  ${typography.size.small}
+  color: ${colors.textGray};
+  ${textTruncate}
+`;
+
+export const StyledModalRightWrapper = styled.div`
+  padding: 2rem 0 3rem 2rem;
+`
+
+export const StyledModalRight = styled.h3`
+  ${typography.size.large}
+  color: ${colors.textWhite};
+  padding-left: 2rem;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: ${colors.textTeal};
+  }
+`;
+
+export const StyledHall = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 3rem -2rem;
+`;
+
+export const StyledHallItem = styled.li`
+  width: calc(33.333% - 2rem);
+  margin-left: 2rem;
+  padding: 2rem;
+  background-color: rgba(171, 171, 171, 0.2);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: #555166;
+    border-color: ${colors.textTeal};
+  }
+
+  h5 {
+    color: #fff;
+  }
+  span {
+    font-size: 1.2rem;
+  }
 `;

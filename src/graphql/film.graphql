@@ -24,4 +24,5 @@ fragment fieldFilm on Film {
   rate
   status
   startDate
+  description
 }

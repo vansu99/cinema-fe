@@ -1,7 +1,7 @@
-import React from "react";
-import dayjs from "dayjs";
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-import { Movie } from "../../types";
+import React from 'react';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import { Movie } from '../../types';
 import {
   StyledMovieInfo,
   StyledMovieItem,
@@ -9,10 +9,24 @@ import {
   StyledMovieThumbnail,
   StyledMovieTitle,
   StyledMovieRating,
-  StyledMovieButton
-} from "./styled";
+  StyledMovieButton,
+  StyledModalInfo,
+  StyledModalThumbnail,
+  StyledModalDesc,
+  StyledModalHeading,
+  StyledModalRight,
+  StyledModalRating,
+  StyledModalFilmDetail,
+  StyledHall,
+  StyledHallItem,
+  StyledModalRightWrapper,
+} from './styled';
+import { useModal } from '../../../../hooks';
+import { Star } from '../../../../components/Icons';
+import Modal from '../../../../components/Modal';
+import { halls } from '../../../../mocks';
 
-dayjs.extend(localizedFormat)
+dayjs.extend(localizedFormat);
 interface MovieItemProps extends Movie {
   count?: number;
   spacing?: number;
@@ -25,17 +39,62 @@ const MovieItem = ({
   name,
   image,
   startDate,
+  description,
 }: MovieItemProps): JSX.Element => {
-  
+  const context = useModal();
+
+  const showModalFilmDetail = () =>
+    context?.showModal(() => (
+      <Modal title="" theme="hsl(219, 48%, 8%)" width={75}>
+        <StyledModalFilmDetail>
+          <div>
+            <StyledModalThumbnail>
+              <img src={image} alt="" />
+            </StyledModalThumbnail>
+            <StyledModalInfo>
+              <StyledModalHeading>{name}</StyledModalHeading>
+              <StyledModalDesc>
+                Ngày công chiếu: {dayjs(startDate).format('ll')}
+              </StyledModalDesc>
+              <StyledModalRating>
+                <Star className="icon" /> <span>{rate}</span>
+              </StyledModalRating>
+              <StyledModalDesc>{description}</StyledModalDesc>
+            </StyledModalInfo>
+          </div>
+          <div>
+            <StyledModalRight>Buy tickets</StyledModalRight>
+            <StyledModalRightWrapper>
+              <div>
+                <h4>Select hall</h4>
+                <StyledHall>
+                  {halls.map((hall) => (
+                    <StyledHallItem key={hall.id}>
+                      <h5>{hall.name}</h5>
+                      <span>{hall.seat} seats</span>
+                    </StyledHallItem>
+                  ))}
+                </StyledHall>
+              </div>
+              <div>
+                <h4>Select date</h4>
+              </div>
+            </StyledModalRightWrapper>
+            <div></div>
+          </div>
+        </StyledModalFilmDetail>
+      </Modal>
+    ));
+
   return (
     <StyledMovieItem count={count} spacing={spacing}>
+      <StyledMovieThumbnail>
+        <img src={image} alt="" />
+        <StyledMovieButton>
+          <button onClick={showModalFilmDetail}>get ticket</button>
+        </StyledMovieButton>
+      </StyledMovieThumbnail>
       <a href="#!">
-        <StyledMovieThumbnail>
-          <img src={image} alt="" />
-          <StyledMovieButton>
-            <button>get ticket</button>
-          </StyledMovieButton>
-        </StyledMovieThumbnail>
         <StyledMovieInfo>
           <StyledMovieTitle>
             <h3>{name}</h3>
@@ -44,7 +103,7 @@ const MovieItem = ({
             Rate: <StyledMovieRating>{rate}</StyledMovieRating>/10
           </StyledMovieItemDesc>
           <StyledMovieItemDesc>
-            Released {dayjs(startDate).format("ll")}
+            Released {dayjs(startDate).format('ll')}
           </StyledMovieItemDesc>
         </StyledMovieInfo>
       </a>

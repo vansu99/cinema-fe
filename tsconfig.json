@@ -8,6 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "strictFunctionTypes": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,

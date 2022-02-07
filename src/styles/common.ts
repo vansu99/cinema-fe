@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { typography } from "./typography";
 import { colors } from "./colors";
 import { variables } from "./variables";
@@ -40,4 +40,16 @@ const StyledHeading = styled.div`
   }
 `;
 
-export { StyledHeading };
+const textTruncate = css`
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word; // rớt xuống theo từ
+`;
+
+export { StyledHeading, textTruncate };
