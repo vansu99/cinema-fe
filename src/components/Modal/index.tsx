@@ -24,7 +24,7 @@ function Modal({ children, title, theme = '#fff', width = 32 }: ModalProps) {
 
   return (
     <Container>
-      <Backdrop />
+      <Backdrop onClick={context?.hideModal} />
       <StyledModal width={width} theme={theme}>
         <StyledModalHeader>
           <Title>{title}</Title>

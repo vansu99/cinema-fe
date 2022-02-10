@@ -9,7 +9,7 @@ interface StyleModalProps {
 
 export const Container = styled.div`
   position: fixed;
-  z-index: 1000;
+  z-index: 1050;
   top: 0;
   right: 0;
   bottom: 0;
@@ -26,12 +26,15 @@ export const Backdrop = styled.div`
   left: 0;
 `;
 
+export const StyledModalOverlay = styled.div``
+
 export const StyledModal = styled.div<StyleModalProps>`
   position: relative;
   margin: 5rem auto;
   background-color: ${(props: StyleModalProps) => props.theme};
   border-radius: 0.25rem;
   width: ${(props: StyleModalProps) => props.width}rem;
+  z-index: 3;
 `;
 
 export const StyledModalHeader = styled.div`

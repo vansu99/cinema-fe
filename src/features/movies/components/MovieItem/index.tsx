@@ -19,6 +19,11 @@ import {
   StyledModalFilmDetail,
   StyledHall,
   StyledHallItem,
+  StyledDate,
+  StyledDateItem,
+  StyledSeatWrapper,
+  StyledSeatItem,
+  StyledSeatList,
   StyledModalRightWrapper,
 } from './styled';
 import { useModal } from '../../../../hooks';
@@ -78,6 +83,48 @@ const MovieItem = ({
               </div>
               <div>
                 <h4>Select date</h4>
+                <StyledDate>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>s09</StyledDateItem>
+                  <StyledDateItem>09s</StyledDateItem>
+                </StyledDate>
+              </div>
+              <div>
+                <h4>Select seats</h4>
+                <StyledSeatWrapper>
+                  <div></div>
+                  <StyledSeatList>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                    <StyledSeatItem>
+                      <input type="checkbox" name="" id="" />
+                    </StyledSeatItem>
+                  </StyledSeatList>
+                </StyledSeatWrapper>
               </div>
             </StyledModalRightWrapper>
             <div></div>

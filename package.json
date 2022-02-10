@@ -29,6 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "npm test --watch",
+    "test:cov": "npm test --coverage",
+    "test:update": "npm test -u",
     "eject": "react-scripts eject",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
     "format": "npm run prettier -- --write",
@@ -57,7 +60,10 @@
     "@graphql-codegen/typescript": "^2.4.2",
     "@graphql-codegen/typescript-operations": "^2.2.3",
     "@graphql-codegen/typescript-react-query": "^3.4.0",
+    "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.21",
-    "prettier": "^2.5.1"
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3"
   }
 }

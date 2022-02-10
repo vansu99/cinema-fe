@@ -172,7 +172,7 @@ export const StyledModalDesc = styled.p`
 
 export const StyledModalRightWrapper = styled.div`
   padding: 2rem 0 3rem 2rem;
-`
+`;
 
 export const StyledModalRight = styled.h3`
   ${typography.size.large}
@@ -181,7 +181,7 @@ export const StyledModalRight = styled.h3`
   position: relative;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -194,7 +194,7 @@ export const StyledModalRight = styled.h3`
 export const StyledHall = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: 1.5rem 0 3rem -2rem;
+  margin: 1.5rem 0 0 -2rem;
 `;
 
 export const StyledHallItem = styled.li`
@@ -217,5 +217,79 @@ export const StyledHallItem = styled.li`
   }
   span {
     font-size: 1.2rem;
+  }
+`;
+
+export const StyledDate = styled.div`
+  display: grid !important;
+  justify-content: flex-start !important;
+  grid-auto-columns: 15%;
+  grid-auto-flow: column;
+  grid-template-columns: unset;
+  grid-column-gap: 1.5rem;
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    scroll-snap-align: center;
+    width: auto;
+  }
+`;
+
+export const StyledDateItem = styled.div`
+  cursor: pointer;
+  background-color: rgba(171, 171, 171, 0.2);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 6.5rem;
+  user-select: none;
+  font-weight: bold;
+  color: #fff;
+
+  &:hover {
+    background-color: #555166;
+    border-color: ${colors.textTeal};
+  }
+`;
+
+// Seats
+export const StyledSeatWrapper = styled.div`
+  display: flex;
+`;
+
+export const StyledSeatList = styled.ul`
+  display: flex;
+  margin-top: 2rem;
+`;
+
+export const StyledSeatItem = styled.li`
+  background-color: #444451;
+  height: 12px;
+  width: 15px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+
+  &:nth-of-type(2) {
+    margin-right: 1.6rem;
+  }
+
+  &:nth-last-of-type(2) {
+    margin-left: 1.6rem;
+  }
+
+  & > input[type='checkbox'] {
+    display: none;
   }
 `;
